@@ -53,7 +53,7 @@
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
 					<!-- 프로젝트 루트에 jar를 만들기 위해 아래의 변수를 설정했다. -->
-					<outputDirectory>${project.basedir}</outputDirectory>
+					<outputDirectory>${project.basedir}/target</outputDirectory>
 					<archive>
 						<manifest>
 							  <!-- FQCN으로 public static void main(String[] args)가 있는 메인 클래스를 넣자 -->
