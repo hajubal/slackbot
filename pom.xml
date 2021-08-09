@@ -35,6 +35,12 @@
 
 	<build>
 		<finalName>slackbot</finalName>
+		<extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ftp</artifactId>
+            </extension>
+        </extensions>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -77,4 +83,12 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<distributionManagement>
+        <repository>
+            <id>ftp.server.id</id>
+            <!--<url>ftp://ftp.example.com</url>-->
+            <url>ftps://192.168.1.251/home/dockerfile/slackbot</url>
+        </repository>
+    </distributionManagement>
 </project>
