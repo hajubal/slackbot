@@ -25,7 +25,7 @@ public class SlackbotMessageService {
         }
     }
 
-    public static SlackbotMessageService getInstance() throws Exception {
+    public static SlackbotMessageService getInstance() {
         if(slackMessageService == null) {
             slackMessageService = new SlackbotMessageService();
         }
