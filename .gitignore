@@ -32,4 +32,4 @@ build/
 ### VS Code ###
 .vscode/
 
-slackinfo.properties
+src/main/resources/slackinfo.properties
