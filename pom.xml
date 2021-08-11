@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hajubal</groupId>
 	<artifactId>slackbot</artifactId>
@@ -9,7 +8,7 @@
 	<description>web site crolling and alram to slack</description>
 
 	<packaging>jar</packaging>
-	
+
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -26,6 +25,11 @@
 			<version>1.9.0</version>
 		</dependency>
 		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.10.3</version>
+		</dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
@@ -36,24 +40,24 @@
 	<build>
 		<finalName>slackbot</finalName>
 		<extensions>
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ftp</artifactId>
-            </extension>
-        </extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ftp</artifactId>
+			</extension>
+		</extensions>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
-				<source>${java.version}</source>
-				<target>${java.version}</target>
-				<compilerVersion>${java.version}</compilerVersion>
-				<encoding>utf-8</encoding>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<compilerVersion>${java.version}</compilerVersion>
+					<encoding>utf-8</encoding>
 				</configuration>
 			</plugin>
-				
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -62,7 +66,7 @@
 					<outputDirectory>${project.basedir}/target</outputDirectory>
 					<archive>
 						<manifest>
-							  <!-- FQCN으로 public static void main(String[] args)가 있는 메인 클래스를 넣자 -->
+							<!-- FQCN으로 public static void main(String[] args)가 있는 메인 클래스를 넣자 -->
 							<mainClass>com.hajubal.slackbot.SlackbotApplication</mainClass>
 						</manifest>
 					</archive>
@@ -85,10 +89,10 @@
 	</build>
 
 	<distributionManagement>
-        <repository>
-            <id>ftp.server.id</id>
-            <!--<url>ftp://ftp.example.com</url>-->
-            <url>ftps://192.168.1.251/home/dockerfile/slackbot</url>
-        </repository>
-    </distributionManagement>
+		<repository>
+			<id>ftp.server.id</id>
+			<url>ftps://192.168.1.251/home/dockerfile/slackbot</url>
+		</repository>
+	</distributionManagement>
+
 </project>
