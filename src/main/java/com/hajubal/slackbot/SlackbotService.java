@@ -2,6 +2,7 @@ package com.hajubal.slackbot;
 
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -58,7 +59,7 @@ public class SlackbotService {
      * 
      * @throws Exception
      */
-    public void checkRuliweb() throws Exception {
+    public void checkRuliweb() throws IOException {
         String url = "https://m.ruliweb.com/ps/board/1020";
 
         Document document = Jsoup.connect(url).get();
@@ -73,9 +74,10 @@ public class SlackbotService {
                 
                 if(this.outOfStackList.contains(attr) == false) {
                     this.outOfStackList.add(attr);
+
                     try {
                         SlackbotMessageService.getInstance().sendMessage("매물 등장!!! " + url);
-                    } catch (Exception e) {
+                    } catch (IOException e) {
                         this.logger.error(e.getMessage(), e.getCause());
                     }
 
@@ -90,7 +92,7 @@ public class SlackbotService {
      * 
      * @throws Exception
      */
-    public void checkPartenerShop() throws Exception {
+    public void checkPartenerShop() throws IOException {
         String url = "https://partnershopplus.com/shop/item.php?it_id=1617693034";
 
         Document document = Jsoup.connect(url).get();

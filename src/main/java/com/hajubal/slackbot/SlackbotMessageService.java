@@ -38,7 +38,7 @@ public class SlackbotMessageService {
      * @param message
      * @throws IOException
      */
-    public WebhookResponse sendMessage(String message) throws Exception {
+    public WebhookResponse sendMessage(String message) throws IOException {
         Slack slack = Slack.getInstance();
         //ApiTestResponse response = slack.methods().apiTest(r -> r.foo("bar"));
         //System.out.println(response);
@@ -46,7 +46,7 @@ public class SlackbotMessageService {
         String webhookUrl = webhookProp.getProperty("webhookurl");
 
         if(webhookUrl == null) {
-            throw new Exception("webhookUrl not set in slackinfo.properties");
+            throw new RuntimeException("webhookUrl not set in slackinfo.properties");
         }
 
         Payload payload = Payload.builder().text(message).build();
