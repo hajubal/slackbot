@@ -80,19 +80,17 @@
                     </execution>
                 </executions>
             </plugin>
-
+<!--
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>wagon-maven-plugin</artifactId>
                 <configuration>
-                    <!--<serverId>ftp.server.id</serverId>-->
                     <fromFile>${project.build.directory}/${project.build.finalName}-jar-with-dependencies.jar</fromFile>
                     <url>scp://192.168.1.251</url>
                     <toFile>/var/services/homes/hajubal/dockerfile/slackbot/${project.build.finalName}.jar</toFile>
                     <commands>
                         <command>sh /var/services/homes/hajubal/dockerfile/slackbot/build.sh</command>
                     </commands>
-                    <!-- Displays the output of the running command -->
                     <displayCommandOutputs>true</displayCommandOutputs>
                 </configuration>
                 <executions>
@@ -106,6 +104,7 @@
                     </execution>
                 </executions>
             </plugin>
+-->                 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
@@ -114,19 +113,15 @@
                 </configuration>
             </plugin>
         </plugins>
+<!--
         <extensions>
-            <!--
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ssh</artifactId>
-            </extension>
-            -->
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
                 <artifactId>wagon-ssh-external</artifactId>
                 <version>2.10</version>
             </extension>
         </extensions>
+-->
     </build>
 
 </project>
